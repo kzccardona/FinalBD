@@ -1,3 +1,5 @@
+-----------------------------//punto 1 //--------------------------------------------------------
+
 CREATE TYPE number_array AS VARRAY(100) OF INTEGER;
 
 DECLARE
@@ -41,3 +43,42 @@ begin
     dbms_output.put_line('Ocurrió un error con los valores');
     return 0;
 end;
+
+--------------------------------------------------//punto 2 //------------------------------------------
+create or replace function find_digits(numero number) return number is
+suma number;
+caracter varchar2(255);
+valor number;
+begin
+  caracter := TO_CHAR(numero);
+  
+  FOR I IN 1..LENGTH(caracter) LOOP
+        valor := mod(SUBSTR(TEXTO,I,1),SUBSTR(TEXTO,I,1));
+        if valor = 0 then 
+            suma := suma +1;
+        end if;
+  END LOOP; 
+  return suma;
+end;
+
+-------------------------------------------------//punto 3 //----------------------------------------------
+
+create table digits (n integer, pairs integer)
+
+insert into digits (n) values (1);
+insert into digits (n) values (2);
+insert into digits (n) values (3);
+insert into digits (n) values (4);
+insert into digits (n) values (5);
+insert into digits (n) values (6);
+insert into digits (n) values (7);
+insert into digits (n) values (8);
+insert into digits (n) values (9);
+insert into digits (n) values (10);
+
+create or replace procedure CALCULATE_FIND_DIGITS as
+begin
+  
+end;
+
+
